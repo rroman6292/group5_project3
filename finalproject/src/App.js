@@ -1,8 +1,9 @@
 import React from "react";
-import Form from "./components/Form";
+import SignUpL from "./components/SignupL";
+import 'bulma/css/bulma.min.css'
 
 function App() {
-  return <Form />;
+  return <SignUpL />;
 }
 
 export default App;
