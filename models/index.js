@@ -1,3 +1,4 @@
 module.exports = {
-  Book: require("./book")
+  Homeowner: require("./homeowners"),
+  Landscape: require("./landscape")
 };
