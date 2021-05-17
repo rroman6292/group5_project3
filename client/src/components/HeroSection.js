@@ -1,15 +1,25 @@
 import React from 'react'
 import '../App.css';
 import './HeroSection.css';
+import { Button } from './Button';
 
 function HeroSection() {
     return (
         <div className = 'hero-container'>
-            <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf0hCz-9KpjjnYek-kPBzqro05cZIBuU_gCA&usqp=CAU' alt ="landscaping"></img>
-            {/* <h1>Adventure Awaits</h1> */}
-            
+            <img src = '/images/landscaping1.jpg' alt ="landscaping"></img>
+            <h1>JOIN OUR COMMUNITY</h1>
+            <p>Read more about us</p>
+      < div className='hero-btns'>
+        <Button
+          className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+        >
+         ABOUT US
+        </Button>
+        </div>    
         </div>
-    )
+    );
 }
 
-export default HeroSection
+export default HeroSection;
