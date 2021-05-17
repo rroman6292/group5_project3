@@ -7,7 +7,7 @@ function SignUpSection() {
 
     return (
         <div className = 'hero-container'>
-            <img src = '/images/lawcare4.jpg' alt ="landscaping"></img>
+            <img src = '/images/lawncare4.jpg' alt ="landscaping"></img>
             <h1> </h1>
       < div className='hero-btns'>
         <Button
