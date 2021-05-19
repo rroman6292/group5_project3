@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
-import SignUp from './components/pages/SignUp';
+import SignUp from './components/SignupL';
 
 
 function App() {
