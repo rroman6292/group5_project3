@@ -1,12 +1,12 @@
 import React from 'react'
-import '../../App.css'
-import SignUpSection from '../SignUpSection'
+import '../App.css'
+import LoginSection from '../components/LoginSection/LoginSection'
 
 
 function Login() {
     return (
         <>
-        <SignUpSection/>
+        <LoginSection/>
         </>
     )
 }
