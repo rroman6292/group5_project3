@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+// const homeownerController = require("../controllers/homeownerController");
+const { Homeowner } = require("../models");
+const bcrypt = require("bcrypt")
 
 // This file empties the Books collection and inserts the books below
 
@@ -31,11 +34,20 @@ const homeownerSeed = [
 
 db.Homeowner
   .remove({})
-  .then(() => db.Homeowner.collection.insertMany(homeownerSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
+  .then(async () => { 
+
+    homeownerSeed.forEach(async (homeowner) => {
+      const newUser = homeowner;
+      newUser.password = await bcrypt.hash(homeowner.password, 10);
+      db.Homeowner
+        .create(newUser)
+        .then(data => {
+          // console.log(data.result.n + " records inserted!");
+          console.log("1 records inserted!");
+          process.exit(0);
+        })
+    })
+    })
   .catch(err => {
     console.error(err);
     process.exit(1);

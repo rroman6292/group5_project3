@@ -1,4 +1,5 @@
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 // Defining methods for the booksController
 module.exports = {
@@ -15,9 +16,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  create: async function(req, res) {
+    const newUser = req.body;
+    console.log(newUser);
+    newUser.password = await bcrypt.hash(req.body.password, 10);
     db.Landscape
-      .create(req.body)
+      .create(newUser)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
