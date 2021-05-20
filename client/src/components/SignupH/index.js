@@ -80,7 +80,7 @@ class SignUpL extends Component {
                 <div class="field">
                     <label class="label">Password</label>
                     <div class="control">
-                        <input class="input" type="password" name = "email" onChange={this.handleInputChange} placeholder="Password must match"></input>
+                        <input class="input" type="password" name = "password" onChange={this.handleInputChange} placeholder="Password must match"></input>
                     </div>
                 </div>
 
@@ -109,7 +109,7 @@ class SignUpL extends Component {
                 <div class="field">
                     <label class="label">Zip Code</label>
                     <div class="control">
-                        <input class="input" type="number" name="zip" onChange={this.handleInputChange} placeholder="Enter Zip Code"></input>
+                        <input class="input" type="number" name="zipcode" onChange={this.handleInputChange} placeholder="Enter Zip Code"></input>
                     </div>
                 </div>
 
