@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../App.css';
 import './HeroSection.css';
-import { Button } from '../Button/Button';
+import { AboutButton } from '../Button/AboutButton';
 
 function HeroSection() {
     return (
@@ -10,13 +10,13 @@ function HeroSection() {
             <h1>JOIN OUR COMMUNITY</h1>
             <p>Read more about us</p>
       < div className='hero-btns'>
-        <Button
+        <AboutButton
           className='btns'
           buttonStyle='btn--outline'
-          buttonSize='btn--large'
+          buttonSize='btn--large'          
         >
          ABOUT US
-        </Button>
+        </AboutButton>
         </div>    
         </div>
     );

@@ -11,8 +11,9 @@ import SignUpH from './components/SignupH'
 import SignUpL from './components/SignupL'
 import ProfileH from './components/ProfileH'
 import ProfileL from './components/ProfileL'
-import LogIn from './components/LogIn'
 
+import About from "./components/About/About";
+import LogIn from './components/LogIn'
 
 
 
@@ -44,6 +45,7 @@ class App extends React.Component {
             <Route path='/sign-up-landscaper' component={SignUpL}/>
             <Route path='/profile-homeowner' component={ProfileH}/>
             <Route path='/profile-landscaper' component={ProfileL}/>
+            <Route path='/About-Us' component={About}/>
             <Route path='/login' component={LogIn}/>
           </Switch>
         </Router>
