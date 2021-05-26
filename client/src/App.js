@@ -11,7 +11,10 @@ import SignUpH from './components/SignupH'
 import SignUpL from './components/SignupL'
 import ProfileH from './components/ProfileH'
 import ProfileL from './components/ProfileL'
+
 import About from "./components/About/About";
+import LogIn from './components/LogIn'
+
 
 
 class App extends React.Component {
@@ -34,7 +37,7 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/login'>
+            <Route path='/login-section'>
               <Login login={this.login}/>
             </Route>
             <Route path='/sign-up' component={SignUp} />
@@ -43,6 +46,7 @@ class App extends React.Component {
             <Route path='/profile-homeowner' component={ProfileH}/>
             <Route path='/profile-landscaper' component={ProfileL}/>
             <Route path='/About-Us' component={About}/>
+            <Route path='/login' component={LogIn}/>
           </Switch>
         </Router>
       </>
