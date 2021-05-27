@@ -1,5 +1,11 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
+const auth = require("../utils/auth")
+
+const isCorrectPassword = async function (user, password) {
+  return bcrypt.compare(password, user.password);
+};
+
 // Defining methods for the booksController
 module.exports = {
   findById: function(req, res) {
@@ -28,5 +34,18 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  login: async function({body}, res) {
+    const user = await db.Homeowner.findOne({ email: body.email });
+  if (!user) {
+    return res.status(400).json({ message: "Can't find this user" });
+  }
+  const correctPw = await isCorrectPassword(user, body.password);
+  if (!correctPw) {
+    return res.status(400).json({ message: 'Wrong password!' });
+  }
+  const token = auth.signToken(user);
+  res.json({ token, user });
   }
 };
+
