@@ -16,7 +16,7 @@ import LogInLand from "./components/LogInLand";
 
 
 import About from "./components/About/About";
-import LogIn from './components/LogIn'
+
 
 
 
@@ -51,7 +51,7 @@ class App extends React.Component {
             <Route path='/login-home' component={() => <LogInHome login={this.login} />}/>
             <Route path='/login-land' component={() => <LogInLand login={this.login} />}/>
             <Route path='/About-Us' component={About}/>
-            <Route path='/login' component={LogIn}/>
+            
 
           </Switch>
         </Router>
