@@ -1,7 +1,8 @@
 import React from 'react'
 import '../../App.css';
 import '../HeroSection/HeroSection.css';
-import { Button } from '../Button/Button';
+import { ButtonHome } from '../ButtonHome/Button';
+import { ButtonLand } from '../ButtonLand/Button';
 
 function LoginSection() {
 
@@ -10,20 +11,20 @@ function LoginSection() {
             <img src = '/images/landscaping3.jpg' alt ="landscaping"></img>
             <h1> </h1>
       < div className='hero-btns'>
-        <Button
+        <ButtonHome
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
          Homeowners Login
-        </Button>
-        <Button
+        </ButtonHome>
+        <ButtonLand
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
          Landscapers Login
-        </Button>
+        </ButtonLand>
         </div>    
         </div>
     );

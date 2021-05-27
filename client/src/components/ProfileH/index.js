@@ -3,7 +3,7 @@ import '../../App.css';
 import './style.css';
 
 
-function ProfileH() {
+function ProfileH(props) {
 
   return (
 
@@ -13,17 +13,17 @@ function ProfileH() {
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary" id = "profile-name">
           <p class="title" id = "profile-title">Profile</p>
-          <p class="subtitle">First and Last Name</p>
-          <p class="subtitle">Phone Number</p>
-          <p class="subtitle">Email</p>
-          <p class="subtitle">Address + Zip Code</p>
+          <p class="subtitle">{props.user.firstName} {props.user.lastName}</p>
+          <p class="subtitle">{props.user.phoneNumber}</p>
+          <p class="subtitle">{props.user.email}</p>
+          <p class="subtitle">{props.user.address} {props.user.zipcode}</p>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info" id ="garden-pic">
           <p class="title">Yard/Garden Picture</p>
           <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png" id = "garden-border"></img>
+            <img src="https://bulma.io/images/placeholders/640x480.png" alt="garden background" id = "garden-border"></img>
           </figure>
         </article>
       </div>

@@ -11,7 +11,8 @@ import SignUpH from './components/SignupH'
 import SignUpL from './components/SignupL'
 import ProfileH from './components/ProfileH'
 import ProfileL from './components/ProfileL'
-import LogIn from './components/LogIn'
+import LogInHome from './components/LogInHome'
+import LogInLand from "./components/LogInLand";
 
 
 
@@ -20,15 +21,15 @@ class App extends React.Component {
 
   state = {
     user: {},
-    loggedin: false
+    loggedin: false,
   }
 
 
-  login = () => {
-    //Import API file than does an AJAX call (axios) to log the user in. Return user object. 
-    //Response will be user object from the database. Set user in state = to user object from database
-    //Change state to loggedin to true
+  login = async (loggedinuser) => {
+    this.setState({user: loggedinuser})
+    console.log(this.state)
   }
+
   render() {
     return (
       <>
@@ -37,14 +38,15 @@ class App extends React.Component {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/login-section'>
-              <Login login={this.login}/>
-            </Route>
+              <Login/>
+              </Route>
             <Route path='/sign-up' component={SignUp} />
             <Route path='/sign-up-homeowner' component={SignUpH}/>
             <Route path='/sign-up-landscaper' component={SignUpL}/>
-            <Route path='/profile-homeowner' component={ProfileH}/>
+            <Route path='/profile-homeowner' component={() => <ProfileH user={this.state.user} />}/>
             <Route path='/profile-landscaper' component={ProfileL}/>
-            <Route path='/login' component={LogIn}/>
+            <Route path='/login-home' component={() => <LogInHome login={this.login} />}/>
+            <Route path='/login-land' component={() => <LogInLand login={this.login} />}/>
           </Switch>
         </Router>
       </>
