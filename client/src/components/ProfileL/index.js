@@ -2,7 +2,7 @@ import React from 'react';
 // import '../../App.css';
 import './style.css';
 
-function ProfileL () {
+function ProfileL (props) {
     return (
         <div class="tile is-ancestor" id = "ancestor">
   <div class="tile is-vertical is-8">
@@ -10,20 +10,12 @@ function ProfileL () {
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary" id = "profile-name">
           <p class="title" id = "profile-title">Profile</p>
-          <p class="subtitle">Company Name</p>
-          <p class="subtitle">Phone Number</p>
-          <p class="subtitle">Email</p>
-          <p class="subtitle">Address</p>
+          <p class="subtitle">{props.user.company_name}</p>
+          <p class="subtitle">{props.user.company_phone}</p>
+          <p class="subtitle">{props.user.company_email}</p>
+          <p class="subtitle">{props.user.address} {props.user.zip}</p>
         </article>
       </div>
-      {/* <div class="tile is-parent">
-        <article class="tile is-child notification is-info" id ="garden-pic">
-          <p class="title">Yard/Garden Picture</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png" id = "garden-border"></img>
-          </figure>
-        </article>
-      </div> */}
     </div>
     <div class="tile is-parent">
       <article class="tile is-child notification is-danger" id="garden-comments">

@@ -45,7 +45,7 @@ class App extends React.Component {
             <Route path='/sign-up-homeowner' component={SignUpH}/>
             <Route path='/sign-up-landscaper' component={SignUpL}/>
             <Route path='/profile-homeowner' component={() => <ProfileH user={this.state.user} />}/>
-            <Route path='/profile-landscaper' component={ProfileL}/>
+            <Route path='/profile-landscaper' component={() => <ProfileL user={this.state.user} />}/>
             <Route path='/login-home' component={() => <LogInHome login={this.login} />}/>
             <Route path='/login-land' component={() => <LogInLand login={this.login} />}/>
             <Route path='/About-Us' component={About}/>
