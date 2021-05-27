@@ -13,8 +13,6 @@ import ProfileH from './components/ProfileH'
 import ProfileL from './components/ProfileL'
 import LogInHome from './components/LogInHome'
 import LogInLand from "./components/LogInLand";
-
-
 import About from "./components/About/About";
 
 
