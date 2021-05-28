@@ -44,7 +44,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   login: async function({body}, res) {
-    const user = await db.Landscape.findOne({ email: body.email });
+    const user = await db.Landscape.findOne({ company_email: body.email });
   if (!user) {
     return res.status(400).json({ message: "Can't find this user" });
   }
