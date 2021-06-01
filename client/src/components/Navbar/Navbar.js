@@ -27,7 +27,7 @@ function Navbar() {
           <nav className =  "navbar">
               <div className = "navbar-container">
                   <Link to = "/" className = "navbar-logo" onClick = {closeMobileMenu}>
-                    Company's Name
+                    Lawn and Order
                     <i className = 'fab fa-typo3' />
                     </Link>
                     <div className = 'menu-icon' onClick = {handleClick}>
@@ -45,16 +45,11 @@ function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                to='/sign-up'
-                                className='nav-links-mobile'
-                                onClick={closeMobileMenu}
-                            >
-                            Sign Up
+                            <Link to='/sign-up' className='nav-links-mobile'onClick={closeMobileMenu}>
+                                Sign Up
                         </Link>
                         </li>
                     </ul>
-                   
                     <Link to = '/sign-up' className = 'nav-links' onClick = {closeMobileMenu}>
                         Sign Up
                     </Link>
