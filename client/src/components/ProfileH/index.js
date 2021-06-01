@@ -1,9 +1,36 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import '../../App.css';
 import './style.css';
+import axios from 'axios';
+
 
 
 function ProfileH(props) {
+
+  const [jobticketsarray, setJobTicketsArray] = useState([]);
+
+  const [jobtickets, setJobTickets] = useState("");
+
+  useEffect(() => {
+    setJobTicketsArray(props.user.jobtickets)
+  }, []);
+
+const handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+
+    setJobTickets(value);
+};
+
+const handleSubmitFunction = async () => {
+    const jobsarray = jobticketsarray;
+    jobsarray.push(jobtickets);
+    axios.put(`/api/homeowners/${props.user._id}`, {jobtickets: jobsarray}).then((response) => {
+        console.log(response)
+        setJobTicketsArray(response.data.jobtickets);
+    })
+    
+}
 
   return (
 
@@ -30,9 +57,10 @@ function ProfileH(props) {
     </div>
     <div class="tile is-parent">
       <article class="tile is-child notification is-danger" id="garden-comments">
-        <p class="title">Add any comments regarding your garden:</p>
-        <textarea class="textarea" placeholder="e.g. I have a combination of turf and real grass, I have a dog, etc.."></textarea>
-        <button class="button is-white" id = "btn-comm">Submit</button>
+        <p class="title">What is your garden needing?</p>
+        <p>Remember to include a description of your project, your name and address. A landscaper will contact you.</p>
+        <textarea name="jobtickets" value={jobtickets} onChange={handleInputChange} class="textarea" placeholder="Gives us a little description of the services you need."></textarea>
+        <button class="button is-white" id = "btn-comm" onClick={handleSubmitFunction}>Submit</button>
         <div class="content">
         </div>
       </article>
@@ -42,7 +70,15 @@ function ProfileH(props) {
     <article class="tile is-child notification is-success" id = "jobs">
       <div class="content">
         <p class="title">Upcoming and completed jobs in your garden</p>
-        <p class="subtitle">Once schedule first job, will appear here.</p>
+        {
+          jobticketsarray.map((ticket) =>{
+            return(
+              <>
+              <p>{ticket}</p>
+              </>
+            )
+          })
+        }
         <div class="content">
         </div>
       </div>
