@@ -11,7 +11,7 @@ function About() {
         </div>
         <div className = 'form-container'>
             <p>
-                
+            Created in 2021, we are a matchmaking landscaping to homeowner business.  We pride ourselves in serving local communities by creating a space for small businesses to market to their neighbors. Join our community today to help develop yours. 
             </p>
         </div>
         </>
