@@ -2,17 +2,24 @@ const router = require("express").Router();
 const homeownerController = require("../../controllers/homeownerController");
 const auth = require("../../utils/auth")
 
-router.route("/")
-  .post(homeownerController.create);
+router.route("/tickets")
+.get(homeownerController.findAllTickets);
 
-// Matches with "/api/books/:id"
 router
   .route("/:id")
   .get(auth.authMiddleware, homeownerController.findById)
-  .put(auth.authMiddleware, homeownerController.update)
+  // .put(auth.authMiddleware, homeownerController.update)
+  .put(homeownerController.update)
   .delete(auth.authMiddleware, homeownerController.remove);
 
   router.route("/login")
   .post(homeownerController.login);
+
+ 
+
+  router.route("/")
+  .post(homeownerController.create);
+
+
 
 module.exports = router;

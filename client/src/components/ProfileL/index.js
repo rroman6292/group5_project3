@@ -1,8 +1,19 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 // import '../../App.css';
 import './style.css';
+import axios from 'axios';
 
 function ProfileL (props) {
+
+  const [jobticketsarray, setJobTicketsArray] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/homeowners/tickets`).then((response) => {
+      console.log(response)
+      setJobTicketsArray(response.data);
+    })
+  }, []);
+
     return (
         <div class="tile is-ancestor" id = "ancestor">
   <div class="tile is-vertical is-8">
@@ -22,8 +33,6 @@ function ProfileL (props) {
         <p class="title">Accepted Jobs</p>
         {/* <textarea class="textarea" placeholder="e.g. I have a combination of turf and real grass, I have a dog, etc.."></textarea> */}
         <button class="button is-white" id = "btn-comm">Submit</button>
-        <div class="content">
-        </div>
       </article>
     </div>
   </div>
@@ -31,7 +40,15 @@ function ProfileL (props) {
     <article class="tile is-child notification is-success" id = "jobs">
       <div class="content">
         <p class="title">Available Jobs</p>
-        {/* <p class="subtitle"></p> */}
+        {
+          jobticketsarray.map((ticket) =>{
+            return(
+              <>
+              <p>{ticket}</p>
+              </>
+            )
+          })
+        }
         <div class="content">
         </div>
       </div>

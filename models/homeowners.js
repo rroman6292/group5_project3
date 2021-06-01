@@ -9,6 +9,7 @@ const homeownerSchema = new Schema({
   phoneNumber: { type: Number, required: true },
   address: { type: String, required: true },
   zipcode: { type: Number, required: true},
+  jobtickets: [String],
 });
 
 const Homeowner = mongoose.model("Homeowner", homeownerSchema);
